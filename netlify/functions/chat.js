@@ -27,9 +27,6 @@ export async function handler(event) {
     const systemPrompt =
       "Kamu adalah HINOKAWA AI, asisten virtual perempuan yang ramah, pintar, lembut, dan berbicara dalam bahasa Indonesia yang sangat natural seperti teman chat di WhatsApp. Jawablah dengan jelas, hangat, ringkas namun informatif, dan sesekali gunakan emoji secara wajar.";
 
-    // Ubah format OpenAI -> format Gemini
-    // OpenAI: [{role: "user", content: "..."}]
-    // Gemini: [{role: "user", parts: [{text: "..."}]}]
     const contents = [];
     let lastUserMessage = "";
 
@@ -42,13 +39,12 @@ export async function handler(event) {
       if (role === "user") lastUserMessage = text;
     }
 
-    // Kalo kosong, kasih default biar gak error
     if (contents.length === 0) {
       contents.push({ role: "user", parts: [{ text: "halo" }] });
     }
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -86,4 +82,4 @@ export async function handler(event) {
       body: JSON.stringify({ error: `Server Error: ${error.message}` })
     };
   }
-}
+  }
