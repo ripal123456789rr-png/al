@@ -1,3 +1,4 @@
+const GEMINI_API_KEY = "AQ.Ab8RN6KGxq3xQQ5MBVqWf5CwZq4tm2An2jRwIaUG-Z00EDbkiA";
 const chatArea = document.getElementById("chatArea");
 const messageInput = document.getElementById("messageInput");
 const micOrSendBtn = document.getElementById("micOrSendBtn");
