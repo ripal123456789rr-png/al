@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>HINOKAWA AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header WhatsApp Dark Mode -->
+    <header class="wa-header">
+      <div class="header-left">
+        <button class="icon-btn back-btn" title="Kembali" aria-label="Kembali">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="avatar-wrapper">
+          <svg class="ai-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hinoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00a884" />
+                <stop offset="100%" stop-color="#005c4b" />
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="50" fill="url(#hinoGrad)" />
+            <path d="M32 28 V72 M68 28 V72 M32 50 H68" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
+            <circle cx="50" cy="50" r="6" fill="#ffd279" />
+          </svg>
+          <span class="online-dot"></span>
+        </div>
+        <div class="header-info">
+          <h1 class="ai-name">HINOKAWA AI</h1>
+          <p class="ai-status" id="aiStatus">online</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" id="clearChatBtn" title="Hapus Percakapan" aria-label="Hapus Percakapan">
+          <i class="fa-solid fa-trash-can"></i>
+        </button>
+        <button class="icon-btn" id="menuBtn" title="Menu" aria-label="Menu">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Area Chat dengan Wallpaper Pola WhatsApp -->
+    <main class="chat-area" id="chatArea">
+      <div class="date-divider">
+        <span>Hari ini</span>
+      </div>
+    </main>
+
+    <!-- Indikator Mengetik / Merekam -->
+    <div class="typing-indicator hidden" id="typingIndicator">
+      <div class="bubble incoming typing-bubble">
+        <div class="dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Input Bar ala WhatsApp -->
+    <footer class="wa-footer">
+      <div class="input-container" id="normalInputContainer">
+        <div class="input-box">
+          <button class="input-icon-btn" id="emojiBtn" title="Emoji" aria-label="Emoji">
+            <i class="fa-regular fa-face-smile"></i>
+          </button>
+          <textarea
+            id="messageInput"
+            rows="1"
+            placeholder="Ketik pesan"
+            autocomplete="off"
+          ></textarea>
+          <button class="input-icon-btn" id="attachBtn" title="Lampirkan" aria-label="Lampirkan">
+            <i class="fa-solid fa-paperclip"></i>
+          </button>
+          <button class="input-icon-btn" id="cameraBtn" title="Kamera" aria-label="Kamera">
+            <i class="fa-solid fa-camera"></i>
+          </button>
+        </div>
+        <button class="action-circle-btn" id="micOrSendBtn" title="Rekam suara" aria-label="Rekam suara">
+          <i class="fa-solid fa-microphone" id="micOrSendIcon"></i>
+        </button>
+      </div>
+
+      <div class="recording-container hidden" id="recordingContainer">
+        <div class="recording-box">
+          <button class="cancel-rec-btn" id="cancelRecBtn" title="Batal rekam">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <div class="rec-status">
+            <span class="rec-dot"></span>
+            <span id="recTimer">0:00</span>
+          </div>
+          <span class="rec-hint">Merekam suara...</span>
+        </div>
+        <button class="action-circle-btn send-rec-btn" id="sendRecBtn" title="Kirim Voice Note">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
